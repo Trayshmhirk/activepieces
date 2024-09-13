@@ -3,6 +3,12 @@ import {
   PieceAuth,
   Property,
 } from '@activepieces/pieces-framework';
+import { addOrUpdateContactExtended } from './lib/actions/add-or-update-contact-extended';
+import { addOrUpdateContact } from './lib/actions/add-or-update-contact';
+import { addOrUpdateSubscription } from './lib/actions/add-or-update-subscription';
+import { createInvoice } from './lib/actions/create-invoice';
+import { createProduct } from './lib/actions/create-product';
+import { getContactDetails } from './lib/actions/get-contact-details';
 
 const markdownDescription = `
   Follow these instructions to get your Chargekeep API Key:
@@ -48,6 +54,13 @@ export const linka = createPiece({
   minimumSupportedRelease: '0.20.0',
   logoUrl: 'https://cdn.activepieces.com/pieces/linka.png',
   authors: ['Trayshmhirk'],
-  actions: [],
+  actions: [
+    addOrUpdateContact,
+    addOrUpdateContactExtended,
+    addOrUpdateSubscription,
+    createInvoice,
+    createProduct,
+    getContactDetails,
+  ],
   triggers: [],
 });
