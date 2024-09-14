@@ -9,12 +9,15 @@ import { addOrUpdateSubscription } from './lib/actions/add-or-update-subscriptio
 import { createInvoice } from './lib/actions/create-invoice';
 import { createProduct } from './lib/actions/create-product';
 import { getContactDetails } from './lib/actions/get-contact-details';
+import { newLead } from './lib/triggers/new-lead';
+import { newPayment } from './lib/triggers/new-payment';
+import { newSubscription } from './lib/triggers/new-subscription';
 
 const markdownDescription = `
-  Follow these instructions to get your Chargekeep API Key:
+  Follow these instructions to get your Linka API Key:
 
   1. Visit the following website: https://crm.linka.ai/ or the beta website: https://beta.linka.ai/
-  2. Once on the website, locate and click on the admin to obtain your chargekeep API Key.
+  2. Once on the website, locate and click on the admin to obtain your Linka API Key.
 `;
 
 export const linkaAuth = PieceAuth.CustomAuth({
@@ -62,5 +65,5 @@ export const linka = createPiece({
     createProduct,
     getContactDetails,
   ],
-  triggers: [],
+  triggers: [newLead, newPayment, newSubscription],
 });
